@@ -1,0 +1,11 @@
+.NavbarItems{
+  background-color: rgb(79, 86, 92);
+  /* float: left; */
+  text-align: right;
+}
+
+.navbar-logo{
+  float: left;
+  padding: auto;
+  margin: auto;
+}
