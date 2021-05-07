@@ -3,24 +3,35 @@ import {MenuItems} from './MenuItems'
 import '../Navbar.css'
 
 class Navbar extends Component {
+  state = {buttonClicked : false}
+
+  handleClick = () => {
+    this.setState({buttonClicked: !this.state.buttonClicked})
+  }
+
   render() {
     return(
       <nav className = "NavbarItems">
         <h1 className = "navbar-logo">Logo</h1>
+        <div className = "menuButton" onClick = {this.handleClick}>
+          <i className = {this.state.buttonClicked ?  'fas fa-times' : 'fas fa-bars'}></i>
+        </div>
         <div className = "menuItems">
-          {MenuItems.map((item, index) => {
-            return(
-              <li key = {index}>
-                <a className = {item.cName} href = {item.url}>
-                  {item.title}
-                </a>
-              </li>
-            )
-          })}
+          <ul className = {this.state.buttonClicked ? 'menuList active' : 'menuList'}>
+            {MenuItems.map((item, index) => {
+              return(
+                <li key = {index}>
+                  <a className = {item.cName} href = {item.url}>
+                    {item.title}
+                  </a>
+                </li>
+              )
+            })}
+          </ul>
         </div>
       </nav>
     )
   }
 }
 
-export default Navbar;
+export default Navbar

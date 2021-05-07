@@ -8,11 +8,11 @@ import Sketch from "react-p5";
 
   // console.log(w,h);
   
-  let particleCount = 200;
+  let particleCount = 50;
   let minSpeed = 0.05;
   let maxSpeed  = 0.10;
   let maxDist = 80;
-  let maxConnection = 7;
+  let maxConnection = 6;
   let particles = [];
   
 export default (props) => {
