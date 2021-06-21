@@ -1,11 +1,115 @@
 .NavbarItems{
   background-color: rgb(79, 86, 92);
-  /* float: left; */
-  text-align: right;
+  display: flex;
+  text-align: fixed;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 99;
 }
 
 .navbar-logo{
-  float: left;
-  padding: auto;
-  margin: auto;
+  color: white;
+  justify-self: start;
+  margin-left: 20px;
+  margin-right: 20px;
+
+}
+
+.menuItems{
+  width: 100%;
+  text-align: left;
+  top: 100%;
+  left: 0;
+  margin-right: 20px;
+}
+
+.menuList{
+  width: 100%;
+  list-style: none;
+  padding: 0%;
+  margin: 0%;
+  display: grid;
+  grid-template-columns: repeat(5,auto);
+  grid-gap: 10px;
+  text-align: center;
+  justify-content: end;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+
+.nav-links-mobile {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  padding: 0.5rem 1rem;
+}
+
+.nav-links:hover{
+  background-color: rgb(110, 118, 126);
+  border-radius:  4px;
+  transition: all 0.2s ease-out;
+}
+
+.nav-links-mobile:hover{
+  background-color: rgb(110, 118, 126);
+  border-radius:  4px;
+  transition: all 0.2s ease-out;
+}
+
+.fa-times,.fa-bars{
+  color: white;
+  font-size: 1.2rem;
+}
+
+.menuButton {
+  display: none;
+  
+}
+@media screen and (max-width: 960px) {
+  .menuButton{
+    display: block;
+    position: absolute;
+    right: 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+
+  }
+  .menuItems{
+    width: 100%;
+    text-align: left;
+    top: 100%;
+    left: 0;
+    margin-right: 20px;
+    
+  }
+  
+  .menuList{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    list-style: none;
+    left: 100%;
+    opacity: 1;
+    transition: all 0.5s ease;
+    margin:  20px 0 20px 0;
+    padding: 20px 0 20px 0;
+  }
+  
+  .menuList.active {
+    background-color: rgb(79, 86, 92);
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    z-index: 1;
+    margin:  20px 0 20px 0;
+    padding: 20px 0 20px 0;
+  }
 }
