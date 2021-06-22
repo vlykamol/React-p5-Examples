@@ -15,7 +15,7 @@ import Sketch from "react-p5";
   let maxConnection = 6;
   let particles = [];
   
-export default (props) => {
+  function Sketch1() {
 	const setup = (p5, canvasParentRef) => {
 		// use parent to render the canvas in this ref
 		// (without that p5 will render the canvas outside of your component)
@@ -24,10 +24,12 @@ export default (props) => {
       // console.log(i);
       let p = new particle();
       particles.push(p);
-      
     }
-    
 	};
+
+  // const windowResized = (p5) => {
+  //   p5.resizeCanvas(w,h);
+  // }
 
 	const draw = (p5) => {
 		p5.background(41,47,54);
@@ -96,9 +98,8 @@ export default (props) => {
     }
   }
 
-  const windowResized = (p5) => {
-    p5.resizeCanvas(w,h);
-  }
-
 	return <Sketch setup={setup} draw={draw} />;
 };
+
+
+export default Sketch1
