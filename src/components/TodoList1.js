@@ -17,20 +17,25 @@ function TodoList1() {
     if(todo == '') return;
     else{
     setList([
+      ...todolist,
       {
-        id : todolist.length ? todolist[0].id + 1 : 1,
+        id : todolist.length ,
         name : todo,
         isCompleted: false
-      },
-      ...todolist
+      }      
     ]);
     settodo('');
   }
   }
 
-  const handleChange = (newtodo) => {
-    newtodo.isCompleted = !newtodo.isCompleted;
-    setList(todolist);
+  const handleChange = (newtodo, index) => {
+    const newlist = [...todolist];
+    newlist.splice(index, 1, {
+      ...newtodo,
+      isCompleted: !newtodo.isCompleted
+    });
+    setList(newlist);
+    console.log(todolist);
   }
 
   const deltodo = (todos) => {
@@ -51,12 +56,12 @@ function TodoList1() {
       </form>
 
       <ul>
-          {todolist.map((todos) =>
+          {todolist.map((todos, index) =>
           <li
           className = {todos.isCompleted ? "done" : "notdone"}
           key = {todos.id}>
             <div>{todos.name}</div>
-            <button onClick = {() => handleChange(todos)}>{todos.isCompleted ? "notdone" : "done"}</button>
+            <button onClick = {() => handleChange(todos, index)}>{todos.isCompleted ? "notdone" : "done"}</button>
             <button onClick = {() => deltodo(todos, todos.id)}>delete</button>            
           </li>
           )}
